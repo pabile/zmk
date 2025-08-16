@@ -36,6 +36,7 @@ ZMK Studio currently has the following capabilities:
 |   ✅   | Renaming layers & enabling [extra layers](#including-extra-layers)                                                                        |
 |   ❌   | Adding more layers than specified by devicetree                                                                                           |
 |   💡   | Host locale selection                                                                                                                     |
+|   💡   | Importing and exporting keymaps                                                                                                           |
 
 Items listed as "planned", "under development", "low priority", or "not planned" can be configured using [devicetree](../config/index.md#devicetree-files) instead.
 
@@ -55,11 +56,18 @@ Generally, if you intend to use ZMK Studio, then you should not make any further
 
 You can use ZMK Studio with Chrome/Edge at https://zmk.studio/.
 
-To use the native app for Linux, macOS, or Windows, download the appropriate file from the [latest release](https://github.com/zmkfirmware/zmk-studio/releases).
+To use the native app for Linux, macOS, or Windows, visit the [download page](https://zmk.studio/download).
 
 :::warning
 
 To use ZMK Studio over USB, you need permission to access the USB serial port. This most commonly occurs on Linux, with various distributions having different methods of resolving the error. For example, you may need to be added to a `uucp` or a `dialout` group. Refer to your operating system's documentation for more information.
+
+:::
+
+:::note
+
+If you are connected to the computer over both USB and BLE endpoints, you should set the keyboard output to the same endpoint that you connect to ZMK Studio using.
+For example, if you are connecting to ZMK Studio over USB, ensure that USB output is selected by invoking the `&out OUT_USB` [behavior](../keymaps/behaviors/outputs.md).
 
 :::
 
@@ -72,7 +80,8 @@ Building for ZMK Studio involves two main additional items.
 
 ### GitHub Actions
 
-First add a `studio-rpc-usb-uart` to the `snippet` property of your build configuration, in the `build.yaml` file at the root of your user config.
+Add a `studio-rpc-usb-uart` to the `snippet` property of your build configuration, in the `build.yaml` file at the root of your user config. Enabling the `ZMK_STUDIO` Kconfig setting can also be done from the `build.yaml` file using the `cmake-args` property.
+
 For a split keyboard, you should do this _only_ for your central/left side, e.g.:
 
 ```yaml title="build.yaml"
@@ -81,14 +90,9 @@ include:
   - board: nice_nano_v2
     shield: corne_left
     snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: nice_nano_v2
     shield: corne_right
-```
-
-Next, enable the `ZMK_STUDIO` Kconfig symbol, for example by adding the following line to your .conf file:
-
-```
-CONFIG_ZMK_STUDIO=y
 ```
 
 ### Local Build
