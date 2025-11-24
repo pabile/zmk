@@ -5,7 +5,7 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <layouts/pabile/pabile38-layouts.dtsi>
+#include "pabile38-layouts.dtsi"
 
 / {
 
@@ -102,4 +102,5 @@
 &alt_layout {
     transform = <&alternate_transform>;
 };
+
 
