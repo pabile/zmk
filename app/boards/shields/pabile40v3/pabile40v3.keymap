@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 The ZMK Contributors
+ * Copyright (c) 2025 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
@@ -21,37 +21,37 @@
 			// |  Q   |  W   |  E   |  R   |  T   |   Y   |  U    |  I   |  O   |   P   | 
 			// |  A   |  S   |  D   |  F   |  G   |   H   |  J    |  K   |  L   |   -   | 
 			// |  Z   |  X   |  C   |  V   |  B   |   N   |  M    |  ,   |  .   |   /   |
-			// | LCTL | LALT | LSHFT| BSPC | SPACE        |  ENT  | DEL  | RGUI | ESC   |
+			// | LCTL | LGUI | LALT | LSHFT| BSPC | SPACE |  ENT  | DEL  | RCTL | ESC   |
 
 			bindings = <
-				&kp Q     &kp W    &kp E     &kp R      &kp T       &kp Y    &kp U       &kp I     &kp O    &kp P
-				&lt 3 A   &kp S    &kp D     &kp F      &kp G       &kp H    &kp J       &kp K     &kp L    &lt 3 MINUS
-				&kp Z     &kp X    &kp C     &kp V      &kp B       &kp N    &kp M       &kp COMMA &kp DOT  &kp FSLH
-				&kp LCTRL &kp LALT &kp LSHFT &kp BSPC   &lt 1 SPACE &none    &lt 2 ENTER &lt 4 DEL &kp RGUI &kp ESC
+				&kp Q     &kp W    &kp E    &kp R     &kp T      &kp Y       &kp U       &kp I     &kp O    &kp P
+				&lt 3 A   &kp S    &kp D    &kp F     &kp G      &kp H       &kp J       &kp K     &kp L    &lt 3 MINUS
+				&kp Z     &kp X    &kp C    &kp V     &kp B      &kp N       &kp M       &kp COMMA &kp DOT  &kp FSLH
+				&kp LCTRL &kp LCTL &kp LALT &kp LSHFT &lt 2 BSPC &lt 1 SPACE &lt 4 ENTER &kp DEL   &kp RCTL &kp ESC
 			>;
 		};
 		1 {
 			bindings = <
-				&kp N1   &kp N2    &kp N3   &kp N4     &kp N5     &kp N6     &kp N7       &kp N8    &kp N9   &kp N0
-				&kp TAB  &none     &none    &kp GRAVE  &kp LBKT   &kp RBKT   &kp BSLH     &kp SEMI  &kp SQT  &kp MINUS
+				&kp N1   &kp N2    &kp N3   &kp N4     &kp N5     &kp N6     &kp N7       &kp N8            &kp N9          &kp N0
+				&kp TAB  &none     &none    &kp GRAVE  &kp LBKT   &kp RBKT   &kp BSLH     &kp SEMI          &kp SQT         &kp MINUS
 				&none    &none     &none    &none      &kp EQUAL  &kp MINUS  &none        &kp C_VOLUME_DOWN &kp C_VOLUME_UP &kp C_MUTE
-				&trans   &trans   &trans    &kp BSPC   &trans     &none      &kp KP_ENTER &trans    &trans   &trans
+				&trans   &trans   &trans    &kp BSPC   &trans     &none      &kp KP_ENTER &trans            &trans          &trans
 			>;
 		};
 		2 {
 			bindings = <
-				&kp F1   &kp F2    &kp F3   &kp F4     &kp F5     &kp F6          &kp F7       &kp F8            &kp F9          &kp F10
-				&kp TAB  &kp F11   &kp F12  &none      &none      &none           &none        &none             &none           &none
-				&none    &kp PSCRN &kp SLCK &kp PAUSE_BREAK  &kp CAPS  &kp KP_NUMLOCK  &none   &kp C_VOLUME_DOWN &kp C_VOLUME_UP &kp C_MUTE
-				&trans   &trans    &trans   &trans     &kp SPACE  &none           &kp KP_ENTER &none             &none           &none
+				&kp F1   &kp F2    &kp F3   &kp F4           &kp F5    &kp F6          &kp F7       &kp F8            &kp F9          &kp F10
+				&kp TAB  &kp F11   &kp F12  &none            &none     &none           &none        &none             &none           &none
+				&none    &kp PSCRN &kp SLCK &kp PAUSE_BREAK  &kp CAPS  &kp KP_NUMLOCK  &none        &kp C_VOLUME_DOWN &kp C_VOLUME_UP &kp C_MUTE
+				&trans   &trans    &trans   &trans           &kp SPACE &none           &kp KP_ENTER &none             &none           &none
 			>;
 		};
 		3 {
 			bindings = <
 				&trans        &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &msc SCRL_UP     &kp INS      &kp PAGE_UP  &kp UP     &kp PAGE_DOWN      &kp DEL
 				&trans        &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN   &kp HOME     &kp LEFT     &kp DOWN   &kp RIGHT          &none
-				&none         &none          &none          &none           &none     &kp END      &none        &none      &none              &none
-				&trans        &trans         &kp BSPC       &kp SPACE       &none     &trans       &trans       &trans     &trans             &trans
+				&none         &none          &none          &none           &none            &kp END      &none        &none      &none              &none
+				&trans        &trans         &kp BSPC       &kp SPACE       &none            &trans       &trans       &trans     &trans             &trans
 			>;
 		};
 		4 {
@@ -59,8 +59,9 @@
 				&bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none    &rgb_ug RGB_HUD  &rgb_ug RGB_SPI  &rgb_ug RGB_HUI  &none
 				&none         &none        &none        &none        &none        &none    &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG
 				&out OUT_USB  &bt BT_CLR   &bt BT_PRV   &bt BT_NXT   &none        &none    &none            &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &ext_power EP_TOG
-				&out OUT_BLE  &none        &none        &none        &none        &none    &trans           &studio_unlock   &none            &bootloader
+				&out OUT_BLE  &none        &none        &none        &none        &none    &trans           &trans           &studio_unlock   &bootloader
 			>;
 		};
 	};
+
 };
