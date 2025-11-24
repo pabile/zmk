@@ -1,5 +1,5 @@
  /*
- * Copyright (c) 2023 The ZMK Contributors
+ * Copyright (c) 2025 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
@@ -8,12 +8,6 @@
 #include <layouts/pabile/pabile38-layouts.dtsi>
 
 / {
-    
-/*    chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
-    };
-*/
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
@@ -108,3 +102,4 @@
 &alt_layout {
     transform = <&alternate_transform>;
 };
+
